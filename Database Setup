@@ -1,0 +1,48 @@
+-- Create the database
+CREATE DATABASE hotel_db;
+USE hotel_db;
+
+##
+-- Table for Room Inventory
+CREATE TABLE rooms (
+    room_no INT PRIMARY KEY,
+    room_type VARCHAR(20) NOT NULL,
+    price DOUBLE NOT NULL,
+    status VARCHAR(20) DEFAULT 'Available'
+);
+
+-- Table for Active Bookings
+CREATE TABLE reservations (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    guest_name VARCHAR(50) NOT NULL,
+    room_no INT,
+    days INT NOT NULL,
+    bill DOUBLE NOT NULL,
+    FOREIGN KEY (room_no) REFERENCES rooms(room_no)
+);
+
+##
+Insert room inventory
+-- Standard Rooms (101 - 110)
+INSERT INTO rooms (room_no, room_type, price, status) VALUES 
+(101, 'Standard', 500.0, 'Available'), (102, 'Standard', 500.0, 'Available'),
+(103, 'Standard', 500.0, 'Available'), (104, 'Standard', 500.0, 'Available'),
+(105, 'Standard', 500.0, 'Available'), (106, 'Standard', 500.0, 'Available'),
+(107, 'Standard', 500.0, 'Available'), (108, 'Standard', 500.0, 'Available'),
+(109, 'Standard', 500.0, 'Available'), (110, 'Standard', 500.0, 'Available');
+
+-- Deluxe Rooms (201 - 210)
+INSERT INTO rooms (room_no, room_type, price, status) VALUES 
+(201, 'Deluxe', 1000.0, 'Available'), (202, 'Deluxe', 1000.0, 'Available'),
+(203, 'Deluxe', 1000.0, 'Available'), (204, 'Deluxe', 1000.0, 'Available'),
+(205, 'Deluxe', 1000.0, 'Available'), (206, 'Deluxe', 1000.0, 'Available'),
+(207, 'Deluxe', 1000.0, 'Available'), (208, 'Deluxe', 1000.0, 'Available'),
+(209, 'Deluxe', 1000.0, 'Available'), (210, 'Deluxe', 1000.0, 'Available');
+
+-- Suite Rooms (301 - 310)
+INSERT INTO rooms (room_no, room_type, price, status) VALUES 
+(301, 'Suite', 2000.0, 'Available'), (302, 'Suite', 2000.0, 'Available'),
+(303, 'Suite', 2000.0, 'Available'), (304, 'Suite', 2000.0, 'Available'),
+(305, 'Suite', 2000.0, 'Available'), (306, 'Suite', 2000.0, 'Available'),
+(307, 'Suite', 2000.0, 'Available'), (308, 'Suite', 2000.0, 'Available'),
+(309, 'Suite', 2000.0, 'Available'), (310, 'Suite', 2000.0, 'Available');
